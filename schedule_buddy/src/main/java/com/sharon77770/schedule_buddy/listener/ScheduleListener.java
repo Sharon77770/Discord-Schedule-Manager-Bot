@@ -18,6 +18,24 @@ import java.util.List;
 public class ScheduleListener extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        String cmd = event.getName();
+        
+        if (cmd.equals("도움") || cmd.equals("help")) {
+            EmbedBuilder eb = new EmbedBuilder();
+            eb.setTitle("📘 탈론 봇 사용법");
+            eb.setColor(new Color(0x9B59B6));
+            eb.setDescription("탈론은 디스코드에서 간편하게 일정을 관리할 수 있는 봇입니다.\n\n"
+                    + "**주요 명령어**\n"
+                    + "`/일정등록` : 새 일정을 생성합니다.\n"
+                    + "  - 옵션: 월, 일, 시, 분, 장소, 내용 (모두 필수)\n\n"
+                    + "**참가하기/취소하기 버튼**\n"
+                    + "일정 메시지 하단의 버튼으로 참가자를 등록하거나 취소할 수 있습니다.\n\n"
+                    + "더 자세한 내용이나 문의는 GitHub 저장소를 확인하세요.");
+
+            event.replyEmbeds(eb.build()).setEphemeral(true).queue();
+            return;
+        }
+
         if (!event.getName().equals("일정등록")) return;
 
         int month = (int) event.getOption("월").getAsLong();
