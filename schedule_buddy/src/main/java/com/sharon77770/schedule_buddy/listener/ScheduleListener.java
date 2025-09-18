@@ -60,9 +60,9 @@ public class ScheduleListener extends ListenerAdapter {
         String dateTimeStr = eventDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
         EmbedBuilder eb = new EmbedBuilder();
-        eb.setTitle("📅 일정: " + content);
+        eb.setTitle("📅 일정: " + content + "\n🕒 시간: " + dateTimeStr + "\n📍 장소: " + place);
         eb.setColor(Color.CYAN);
-        eb.setDescription("🕒 시간: " + dateTimeStr + "\n📍 장소: " + place + "\n\n**참가자:**\n(없음)");
+        eb.setDescription("\n**참가자:**\n(없음)");
 
         event.replyEmbeds(eb.build())
                 .addActionRow(
