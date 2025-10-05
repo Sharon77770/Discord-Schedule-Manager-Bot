@@ -115,7 +115,7 @@ public class ScheduleListener extends ListenerAdapter {
             participantStr = String.join("\n", participants);
         }
 
-        String newDesc = lines[0] + "\n\n**참가자:**\n" + participantStr;
+        String newDesc = lines[0] + "\n" + participantStr;
 
         EmbedBuilder updated = new EmbedBuilder(embed)
                 .setDescription(newDesc);
